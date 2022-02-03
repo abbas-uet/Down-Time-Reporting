@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import MoniterWebsite from './components/MoniterWebsite';
+import WebsiteHistory from './components/WebsiteHistory';
+import AddWebsite from './components/AddWebsite';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
+  document.body.style.backgroundColor='#949eb3'
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+    <Navbar/>
+    <Routes>
+      <Route path="/" element={<AddWebsite />}/>
+      <Route path="/moniter" element={<MoniterWebsite />}/>
+      <Route path="/history" element={<WebsiteHistory />} />
+    </Routes>
+  </BrowserRouter>
+    </>
   );
+
 }
 
 export default App;
